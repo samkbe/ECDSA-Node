@@ -51,7 +51,7 @@ function Wallet({
           </label>
           <button type="submit">Sign Message</button>
         </form>
-        <h3>Wallet Address: {address.slice(0, 10) + "..."}</h3>
+        <h4>Wallet Address: {address.slice(0, 10) + "..."}</h4>
         <div className="balance">Balance: {balance}</div>
       </div>
     </>
