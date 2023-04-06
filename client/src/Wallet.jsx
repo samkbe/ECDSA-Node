@@ -20,16 +20,12 @@ function Wallet({
 
     const hexPublicKey = toHex(publicKey);
 
-    const displayPublicKey = hexPublicKey.slice(0, 10) + "...";
-
     if (isSigned) {
-      console.log("INVOKED: ");
-      console.log("hexPublicKey: ", hexPublicKey);
       const {
         data: { balance },
       } = await server.get(`balance/${hexPublicKey}`);
       setBalance(balance);
-      setAddress(displayPublicKey);
+      setAddress(hexPublicKey);
     }
   }
 
@@ -53,9 +49,9 @@ function Wallet({
               }}
             ></input>
           </label>
-          <button type="submit">Sign</button>
+          <button type="submit">Sign Message</button>
         </form>
-        <h3>Wallet Address: {address}</h3>
+        <h3>Wallet Address: {address.slice(0, 10) + "..."}</h3>
         <div className="balance">Balance: {balance}</div>
       </div>
     </>

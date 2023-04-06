@@ -14,12 +14,6 @@ const balances = {
 
 app.get("/balance/:address", (req, res) => {
   const { address } = req.params;
-
-  console.log(
-    "Address should be 04832586656c85b8cb70758d4469fb7d824f9d332c1412864db880a20ba2a50bfed847e769019ce2dc397b840674229d9bd48c6eb2cfb53f815690a2804dd0dfce but is: ",
-    address
-  );
-
   const balance = balances[address] || 0;
   res.send({ balance });
 });
